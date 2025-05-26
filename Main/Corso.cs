@@ -1,7 +1,7 @@
 using System;
 public abstract class Corso
 {
-    private string Titolo { get; set; }
+    public string Titolo { get; set; }
     private int durataOre;
 
 
