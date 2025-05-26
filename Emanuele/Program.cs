@@ -9,8 +9,7 @@ public abstract class Corso
     public int DurataOre
     {
         get { return durataOre; }
-        set
-        {
+        set {
             if (value >= 0)
                 durataOre = value;
         }
@@ -26,8 +25,7 @@ public abstract class Corso
     public abstract void StampaDettagli();
 }
 
-public class CorsoOnline : Corso
-{
+public class CorsoOnline : Corso {
     private string Piattaforma { get; set; }
     private string LinkAccesso { get; set; }
     
@@ -46,11 +44,13 @@ public class CorsoOnline : Corso
     }
     public override void ErrogaCorso()
     {
-        Console.WriteLine($"{Titolo} - {Descrizione} ({DurataOre} ore) - Categoria: {Categoria}");
+        Console.WriteLine($"Il corso online {Titolo} è stato erogato con successo.");
     }
 
     public override string ToString()
     {
-        return $"{Titolo} - {Descrizione} ({DurataOre} ore) - Categoria: {Categoria}";
+        return $"Accesso al corso online: {Titolo} su {Piattaforma}" +
+               $"\nDurata: {DurataOre} ore" +
+               $"\nLink di accesso: {LinkAccesso}";
     }
 }
