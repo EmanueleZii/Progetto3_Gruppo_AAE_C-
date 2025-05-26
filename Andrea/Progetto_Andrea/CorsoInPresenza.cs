@@ -23,12 +23,13 @@ public class CorsoInPresenza : Corso
         }
     }
 
-    public CorsoInPresenza(string titolo, int durataOre, string aula, int numeroPosti)
+    public CorsoInPresenza(string titolo, int durataOre, string aula, int numeroPosti, Docente docente)
     {
         NumeroPosti = numeroPosti;
         Aula = aula;
         DurataOre = durataOre;
         Titolo = titolo;
+        Docente = docente;
     }
 
     public override void ErogaCorso()

@@ -4,7 +4,7 @@ public abstract class Corso
     public string Titolo { get; set; }
     private int durataOre;
 
-
+    public Docente docente { get; set; }
 
     public int DurataOre
     {
@@ -14,12 +14,6 @@ public abstract class Corso
             if (value >= 0)
                 durataOre = value;
         }
-    }
-
-    public Corso()
-    {
-        Titolo = "";
-        DurataOre = 0;
     }
 
     public abstract void ErogaCorso();

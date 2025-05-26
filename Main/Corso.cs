@@ -16,7 +16,7 @@ public abstract class Corso
         }
     }
 
-     public Corso()
+    public Corso()
     {
         Titolo = "";
         DurataOre = 0;
