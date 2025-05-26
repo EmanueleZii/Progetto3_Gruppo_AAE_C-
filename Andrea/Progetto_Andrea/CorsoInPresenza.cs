@@ -33,7 +33,7 @@ public class CorsoInPresenza : Corso
 
     public override void ErogaCorso()
     {
-
+        Console.WriteLine($"Corso {Titolo} erogato.");
     }
 
     public override void StampaDettagli()
