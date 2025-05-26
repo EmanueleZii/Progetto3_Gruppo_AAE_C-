@@ -40,16 +40,16 @@ public class CorsoOnline : Corso {
     }
     public override void StampaDettagli()
     {
-        Console.WriteLine($"Accesso al corso online: {Titolo} su {Piattaforma}");   
+        Console.WriteLine($"Accesso al corso online: {linkAccesso} su {Piattaforma}");   
     }
     public override void ErrogaCorso()
     {
-        Console.WriteLine($"Il corso online {Titolo} è stato erogato con successo.");
+        Console.WriteLine($"Il corso online {piattaforma} è stato erogato con successo.");
     }
 
     public override string ToString()
     {
-        return $"Accesso al corso online: {Titolo} su {Piattaforma}" +
+        return $"Accesso al corso online: {linkAccesso} su {piattaforma}" +
                $"\nDurata: {DurataOre} ore" +
                $"\nLink di accesso: {LinkAccesso}";
     }
