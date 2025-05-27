@@ -7,16 +7,24 @@ public class CorsoOnline : Corso
 
     public string linkAccesso { get { return LinkAccesso; } set { LinkAccesso = value; } }
 
-    public CorsoOnline(string titolo, int durataOre, string _piattaforma, string _linkAccesso)
+    public CorsoOnline(string titolo, int durataOre, string _piattaforma, string _linkAccesso, Docente _docente)
     {
         Piattaforma = _piattaforma;
         LinkAccesso = _linkAccesso;
         Titolo = titolo;
         DurataOre = durataOre;
+        docente = _docente;
     }
     public override void StampaDettagli()
     {
-        Console.WriteLine($"Accesso al corso online: {Titolo} su {Piattaforma}");   
+        if (!(docente is null))
+        {
+            Console.WriteLine($"Accesso al corso online: {Titolo} su {Piattaforma}, docente: {docente.Nome}");
+        }
+        else
+        {
+            Console.WriteLine($"Accesso al corso online: {Titolo} su {Piattaforma}, docente: da assegnare");
+        }
     }
     public override void ErogaCorso()
     {

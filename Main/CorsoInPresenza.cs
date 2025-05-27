@@ -23,12 +23,13 @@ public class CorsoInPresenza : Corso
         }
     }
 
-    public CorsoInPresenza(string titolo, int durataOre, string aula, int numeroPosti)
+    public CorsoInPresenza(string titolo, int durataOre, string aula, int numeroPosti, Docente _docente)
     {
         NumeroPosti = numeroPosti;
         Aula = aula;
         DurataOre = durataOre;
         Titolo = titolo;
+        docente = _docente;
     }
 
     public override void ErogaCorso()
@@ -38,6 +39,13 @@ public class CorsoInPresenza : Corso
 
     public override void StampaDettagli()
     {
-        Console.WriteLine($"Corso: {Titolo}, durata in ore: {DurataOre}, aula: {Aula}, numero posti: {NumeroPosti}");
+        if (!(docente is null))
+        {
+            Console.WriteLine($"Corso: {Titolo}, durata in ore: {DurataOre}, aula: {Aula}, numero posti: {NumeroPosti}, docente: {docente.Nome}");
+        }
+        else
+        {
+            Console.WriteLine($"Corso: {Titolo}, durata in ore: {DurataOre}, aula: {Aula}, numero posti: {NumeroPosti}, docente: da assegnare");
+        }
     }
 }

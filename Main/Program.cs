@@ -4,6 +4,7 @@ public class Program
     public static void Main(string[] args)
     {
         List<Corso> corsi = new List<Corso>();
+        List<Docente> docenti = new List<Docente>();
         bool exit = false;
 
         while (!exit)
@@ -13,6 +14,8 @@ public class Program
             Console.WriteLine("[2] Aggiungi corso online");
             Console.WriteLine("[3] Eroga corsi");
             Console.WriteLine("[4] Stampa dettagli");
+            Console.WriteLine("[5] Aggiungi docente");
+            Console.WriteLine("[6] Visualizza docenti");
             Console.WriteLine("[0] Esci");
             Console.Write("Scelta: ");
             int menuAction = int.Parse(Console.ReadLine());
@@ -28,7 +31,22 @@ public class Program
                     string aula = Console.ReadLine();
                     Console.Write("\nInserisci numero di posti: ");
                     int numeroPosti = int.Parse(Console.ReadLine());
-                    corsi.Add(new CorsoInPresenza(titolo, durataOre, aula, numeroPosti));
+                    Console.Write("\nInserisci il docente: ");
+                    string nomeDocente = Console.ReadLine();
+
+                    foreach (Docente d in docenti)
+                    {
+                        if (d.Nome == nomeDocente)
+                        {
+                            corsi.Add(new CorsoInPresenza(titolo, durataOre, aula, numeroPosti, d));
+                        }
+                        else
+                        {
+                            corsi.Add(new CorsoInPresenza(titolo, durataOre, aula, numeroPosti, null));
+                        }
+                    }
+
+                    
                     break;
 
                 case 2:
@@ -40,7 +58,21 @@ public class Program
                     string piattaforma = Console.ReadLine();
                     Console.Write("\nInserisci numero di posti: ");
                     string linkAccesso = Console.ReadLine();
-                    corsi.Add(new CorsoOnline(titolo, durataOre, piattaforma, linkAccesso));
+                    Console.Write("\nInserisci il docente: ");
+                    nomeDocente = Console.ReadLine();
+
+                    foreach (Docente d in docenti)
+                    {
+                        if (d.Nome == nomeDocente)
+                        {
+                            corsi.Add(new CorsoOnline(titolo, durataOre, piattaforma, linkAccesso, d));
+                        }
+                        else
+                        {
+                            corsi.Add(new CorsoOnline(titolo, durataOre, piattaforma, linkAccesso, null));
+                        }
+                    }
+
                     break;
 
                 case 3:
@@ -54,6 +86,22 @@ public class Program
                     foreach (Corso c in corsi)
                     {
                         c.StampaDettagli();
+                    }
+                    break;
+
+                case 5:
+                    Console.Write("\nInserisci nome docente: ");
+                    string nome = Console.ReadLine();
+                    Console.Write("\nInserisci materia: ");
+                    string materia = Console.ReadLine();
+                    docenti.Add(new Docente(nome, materia));
+                    break;
+
+                case 6:
+                    Console.WriteLine("\nDocenti:");
+                    foreach (Docente d in docenti)
+                    {
+                        Console.WriteLine($"Nome: {d.Nome}, materia: {d.Materia}");
                     }
                     break;
 
