@@ -33,19 +33,26 @@ public class Program
                     int numeroPosti = int.Parse(Console.ReadLine());
                     Console.Write("\nInserisci il docente: ");
                     string nomeDocente = Console.ReadLine();
-
+                    bool esiste = false;
+                    Docente docente = null;
+                    
                     foreach (Docente d in docenti)
                     {
                         if (d.Nome == nomeDocente)
                         {
-                            corsi.Add(new CorsoInPresenza(titolo, durataOre, aula, numeroPosti, d));
-                        }
-                        else
-                        {
-                            corsi.Add(new CorsoInPresenza(titolo, durataOre, aula, numeroPosti, null));
+                            esiste = true;
+                            docente = d;
                         }
                     }
 
+                    if (esiste)
+                    {
+                        corsi.Add(new CorsoInPresenza(titolo, durataOre, aula, numeroPosti, docente));
+                    }
+                    else
+                    {
+                        corsi.Add(new CorsoInPresenza(titolo, durataOre, aula, numeroPosti, null));
+                    }
                     
                     break;
 
@@ -60,17 +67,25 @@ public class Program
                     string linkAccesso = Console.ReadLine();
                     Console.Write("\nInserisci il docente: ");
                     nomeDocente = Console.ReadLine();
+                    esiste = false;
+                    docente = null;
 
                     foreach (Docente d in docenti)
                     {
                         if (d.Nome == nomeDocente)
                         {
-                            corsi.Add(new CorsoOnline(titolo, durataOre, piattaforma, linkAccesso, d));
+                            esiste = true;
+                            docente = d;
                         }
-                        else
-                        {
-                            corsi.Add(new CorsoOnline(titolo, durataOre, piattaforma, linkAccesso, null));
-                        }
+                    }
+
+                    if (esiste)
+                    {
+                        corsi.Add(new CorsoOnline(titolo, durataOre, piattaforma, linkAccesso, docente));
+                    }
+                    else
+                    {
+                        corsi.Add(new CorsoOnline(titolo, durataOre, piattaforma, linkAccesso, null));
                     }
 
                     break;
