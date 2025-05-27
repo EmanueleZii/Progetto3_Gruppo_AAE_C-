@@ -3,6 +3,7 @@ public abstract class Corso
 {
     public string Titolo { get; set; }
     private int durataOre;
+    public Docente docente { get; set; }
 
 
 
